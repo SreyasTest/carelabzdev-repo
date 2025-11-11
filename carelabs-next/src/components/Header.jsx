@@ -1,5 +1,7 @@
 "use client";
-import React, { useState } from 'react'
+import { GET_NAVBAR } from '@/lib/api-Collection';
+import client from '@/lib/appollo-client';
+import React, { useEffect, useState } from 'react'
 
 const Header = () => {
   const [menuOpen,setMenuOpen]=useState(false);
@@ -7,6 +9,22 @@ const Header = () => {
   const openMenus =()=>{
     setMenuOpen(!menuOpen);
   }
+
+  const fetchNavbarData = async () => {
+    try{
+      const res= await client.query({
+                  query: GET_NAVBAR,
+                 });
+
+      console.log("Navbar data:", res.data);
+    }catch(err){
+      console.log("Error fetching navbar data:", err);
+    }
+  }
+
+  useEffect(() => {
+    fetchNavbarData();
+  }, []);
 
   return (
     <>
