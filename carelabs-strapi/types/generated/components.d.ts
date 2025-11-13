@@ -12,6 +12,19 @@ export interface NavbarNavbarItem extends Struct.ComponentSchema {
   };
 }
 
+export interface NewNewItem extends Struct.ComponentSchema {
+  collectionName: 'components_new_new_items';
+  info: {
+    displayName: 'new-item';
+  };
+  attributes: {
+    btn_link: Schema.Attribute.String;
+    btn_text: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface StatsStatBox extends Struct.ComponentSchema {
   collectionName: 'components_stats_stat_boxes';
   info: {
@@ -27,6 +40,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'navbar.navbar-item': NavbarNavbarItem;
+      'new.new-item': NewNewItem;
       'stats.stat-box': StatsStatBox;
     }
   }
