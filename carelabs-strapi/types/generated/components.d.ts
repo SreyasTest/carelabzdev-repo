@@ -12,10 +12,22 @@ export interface NavbarNavbarItem extends Struct.ComponentSchema {
   };
 }
 
+export interface StatsStatBox extends Struct.ComponentSchema {
+  collectionName: 'components_stats_stat_boxes';
+  info: {
+    displayName: 'stat-box';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    number: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'navbar.navbar-item': NavbarNavbarItem;
+      'stats.stat-box': StatsStatBox;
     }
   }
 }

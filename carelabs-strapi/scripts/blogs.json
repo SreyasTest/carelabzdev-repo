@@ -1,0 +1,12 @@
+[
+  {
+    "title": "First Blog",
+    "content": "This is the first blog post.",
+    "featureImage": 3
+  },
+  {
+    "title": "Second Blog",
+    "content": "This is the second blog post.",
+    "featureImage": 2
+  }
+]
