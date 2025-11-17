@@ -1,1 +1,33 @@
 @import "tailwindcss";
+@import "aos/dist/aos.css";
+
+
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+.gradient-bg {
+  background: linear-gradient(90deg, #f15c30, #2575b6);
+  
+}
+.fontz{
+    font-family: var(--font-primary);
+}
+.highlight{
+    color:#f15c30
+}
+
+.gradient-border-top {
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg, #f15c30, #2575b6) 1;
+}
+
+.gradient-text {
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #f15c30, #2575b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+

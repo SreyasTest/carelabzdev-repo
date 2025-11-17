@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
+import "aos/dist/aos.css";
+
 
 
 export default function RootLayout({ children }) {
@@ -11,6 +13,9 @@ export default function RootLayout({ children }) {
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
           crossOrigin="anonymous" 
           referrerPolicy="no-referrer" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
       </head>
       
       <body>
