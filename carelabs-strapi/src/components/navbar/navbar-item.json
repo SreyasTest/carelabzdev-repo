@@ -18,6 +18,12 @@
       "type": "component",
       "component": "submenus.service-item",
       "repeatable": true
+    },
+    "heading": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
     }
   },
   "config": {}

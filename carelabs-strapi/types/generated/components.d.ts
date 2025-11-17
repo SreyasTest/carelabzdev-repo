@@ -16,6 +16,8 @@ export interface NavbarNavbarItem extends Struct.ComponentSchema {
     displayName: 'navbar-item';
   };
   attributes: {
+    badge: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
     order: Schema.Attribute.Integer;
@@ -100,11 +102,9 @@ export interface SubmenusServiceItem extends Struct.ComponentSchema {
     displayName: 'serviceItem';
   };
   attributes: {
-    badge: Schema.Attribute.String;
     Button: Schema.Attribute.String;
     featureheading: Schema.Attribute.String;
     features: Schema.Attribute.Component<'features.feature-item', true>;
-    heading: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
     view: Schema.Attribute.String;
