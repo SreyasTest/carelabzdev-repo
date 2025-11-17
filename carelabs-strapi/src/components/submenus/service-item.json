@@ -5,10 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "view": {
+    "title": {
       "type": "string"
     },
-    "title": {
+    "view": {
       "type": "string"
     },
     "subtitle": {
