@@ -1,102 +1,220 @@
 "use client";
-import { GET_BLOG, GET_NAVBAR } from '@/lib/api-Collection';
+import { GET_NAVBAR } from '@/lib/api-Collection';
 import client from '@/lib/appollo-client';
 import React, { useEffect, useState } from 'react'
 
 const Header = () => {
-  const [menuOpen,setMenuOpen]=useState(false);
-  const [navbarData,setNavbarData]=useState();
+    const [navbarData,setNavbarData]=useState();
+    const [activeIndex, setActiveIndex] = useState(null);
+    const [selectedSubmenuIndex, setSelectedSubmenuIndex] = useState(0);
+    const [openMobileMenu, setOpenMobileMenu] = useState(false);
+   
 
-  const openMenus =()=>{
-    setMenuOpen(!menuOpen);
-  }
 
-  const fetchNavbarData = async () => {
-    try{
-      const res= await client.query({
-                  query: GET_NAVBAR,
-                 });
 
-     
-
-      console.log("Navbar data:", res.data.navbar);
-      setNavbarData(res.data.navbar.Logo);
-
-    }catch(err){
-      console.log("Error fetching navbar data:", err);
+    const openMobilemenus = () => {
+      console.log("TETEE");
+      
+      setOpenMobileMenu(!openMobileMenu);
     }
-  }
 
-  useEffect(() => {
-    fetchNavbarData();
-  }, []);
 
-  useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth > 640) {
-      setMenuOpen(false);
-    }
-  };
+     const fetchNavbarData = async () => {
+        try{
+          const res= await client.query({
+                      query: GET_NAVBAR,
+                    });
 
-  handleResize();
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+        
 
+          console.log("Navbar data:", res.data.navbar);
+          setNavbarData(res.data.navbar);
+
+        }catch(err){
+          console.log("Error fetching navbar data:", err);
+        }
+      }
+
+      useEffect(() => {
+        fetchNavbarData();
+      }, []);
+if (!navbarData) return null;
   return (
-    <>
-      <div className='header-cvr bg-[#0d1222f2]  w-full h-[80px] flex items-center justify-center  fixed top-0 z-50'>
-    <div className="header w-full h-full flex justify-between items-center lg:px-10   ">
+      <>
+        <div className="headCvr w-full h-[80px] flex items-center justify-center navbar-shadow fixed z-50 bg-[white]">
+          <div className="header w-full  h-full flex items-center justify-between lg:justify-center 2xl:w-[80%] 2xl:p-3 ">
+
+            <div className="logo flex item center justify-center w-[50%] sm:w-[40%]  lg:w-[22%] ">
+              <img className=' p-3 md:w-[60%] lg:w-[75%]' src={navbarData.Logo?.url} alt="" />
+            </div>
+
+            <div className="menuList hidden lg:flex lg:w-[38%] lg:justify-center h-full">
+                <ul className='flex text-[14px] font-medium justify-evenly items-center gap-6 w-[90%] p-3'>
+                {navbarData.items.map((item, index) => (
+                  <li
+                    key={item.id}
+                  onMouseEnter={() => {
+                      setActiveIndex(index);
+                      setSelectedSubmenuIndex(0); 
+                    }}
+
+                  
+                    className="cursor-pointer"
+                  >
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+
+            </div>
+
+            <div className="nav-Container h-full flex items-center gap-5 sm:gap-5 lg:justify-center lg:w-[40%] 2xl:justify-end 2xl:pe-[5%]">
+                <div className="global hidden sm:flex items-center justify-center gap-2 border border-[#] px-2 py-1 rounded-4xl">
+                  <i className="fa-solid fa-globe" style={{color: "#000000"}}></i>
+                  <p className='text-[14px]'>{navbarData?.regionSelector}</p>
+                </div>
+
+                <div className="mob-global flex justify-center items-center sm:hidden">
+                  <i className="fa-solid fa-globe" style={{color: "#000000"}}></i>
+                </div>
+
+                  <div className="theme">
+                    <button className='bg-blue-300 p-2 flex items-center justify-center sm:p-3 rounded-full '>
+            <i className="fa-regular fa-moon" style={{color:"#3b82f6"}}></i>
+              </button>
+                  </div>
+
+                  <div className="nav-bttn hidden lg:flex justify-center items-center rounded-md xl:w-[35%] 2xl:w-[30%] bg-blue-500 ">
+                    <button className=' text-sm lg:py-[10px] lg:px-3 ' >
+                      <a href={navbarData?.buttonlink} className='text-[14px] text-white'>{navbarData?.buttontext}</a>
+                    </button>
+                  </div>
 
 
-          <div className="logo w-[60%] h-full flex items-center justify-center p-3 sm:p-0 md:w-[40%] lg:w-[50%]">
-          <img className='h-[60%]' src={navbarData?.url||"https://carelabz.com/wp-content/uploads/2016/04/Carelabs-logo.jpg"} alt="" />
+                  <div
+                className="menu-bar w-[15%] h-full flex items-center justify-center p-2 z-[999] lg:hidden"
+                onClick={openMobilemenus}
+              >
+                {openMobileMenu ? (
+                  <i className="fa-solid fa-x fa-xl" style={{ color: "#000000" }}></i>
+                ) : (
+                  <i className="fa-solid fa-bars fa-xl" style={{ color: "#000000" }}></i>
+                )}
+              </div>
+
+
+            </div>
+
+          </div>
         </div>
 
-        <div className="menubar p-3 md:hidden" onClick={openMenus}>
-          {menuOpen ? (
-          <i className="fa-solid fa-xmark fa-2xl" style={{ color: "white" }}></i>
-        ) : (
-          <i className="fa-solid fa-bars fa-2xl" style={{ color: "white" }}></i>
-        )}
-        </div>
 
-         <div className="menus hidden h-full md:flex  md:w-[60%] lg:py-2 ">
-          <ul className='flex h-full w-full items-center justify-evenly md:justify-center text-white fontz font-bold'>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Home</li>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Services</li>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Impact</li>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Blog</li>
-          <li className='text-center text-[16px]  p-3'>
-            <button className='gradient-bg px-4 py-2 rounded-[6px]'>Enquire  Now</button>
+        {activeIndex !== null &&
+          navbarData.items[activeIndex]?.submenus?.length > 0 && (
+            <div className="sub-menu-cards absolute top-[80px] w-full flex justify-center z-50"
+            >
+
+              <div className="w-[65%] h-[500px] bg-white mt-2 rounded-2xl flex items-center justify-evenly p-6 navbar-shadow fixed"
+              onMouseLeave={() => setActiveIndex(null)}>
+
+                {/* LEFT SECTION */}
+                <div className="w-[35%] h-full">
+                  <h2 className="font-bold text-lg mb-3">
+                    {navbarData.items[activeIndex].heading}
+                  </h2>
+
+                  {navbarData.items[activeIndex].submenus.map((submenu, index) => (
+                    <div 
+                      key={submenu.id} 
+                      className={`p-3 rounded-l-2xl cursor-pointer 
+                        ${selectedSubmenuIndex === index ?" border-l-4 border-blue-500" : ""}`}
+                      onClick={() => setSelectedSubmenuIndex(index)}
+                    >
+                      <h3 className="font-semibold">{submenu.title}</h3>
+                      <p className="text-sm text-gray-600">View Details</p>
+                    </div>
+                  ))}
+
+                  
+                </div>
+
+                {/* RIGHT SECTION */}
+                <div className="w-[55%] h-full card-shadow rounded-2xl">
+                
+                    <div  className="p-5 flex flex-col">
+
+                      <div className=" w-full ">
+                        <h3 className="text-[14px] w-[15%] text-center p-1 rounded-full text-blue-600 bg-blue-200">{navbarData.items[activeIndex].badge}</h3>
+                      </div>
+                    
+
+                        <div className="py-4">
+                          <p className="text-2xl font-bold  text-gray-600">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].title}</p>
+                          <hr  className="w-[15%] rounded-full h-1 mt-1 gradient-bg border-none" />
+                        </div>
+                    
+
+                      <p className="text-sm  text-gray-600 py-4">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].subtitle}</p>
+
+                      <div className="py-5">
+                        <p className="text-sm font-bold  text-gray-600">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].featureheading}</p>
+                        {navbarData.items[activeIndex].submenus[selectedSubmenuIndex].features.map((feature) => (
+                          <div key={feature.id} className="flex items-center gap-2 mt-2">
+                            <i className="fa-solid fa-circle fa-2xs text-blue-500"></i>
+                            <p className="text-sm text-gray-600">{feature.name}</p>
+                          </div>
+                        ))}
+                      </div>
+                  
+
+                      <button className='bg-blue-500 text-white py-2 px-4 rounded-full w-[40%]'>
+                        <a href="">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].Button}</a>
+                      </button>
+
+
+
+                    </div>
+                  
+                </div>
+
+              </div>
+
+            </div>
+          )
+        }
+
+
+        {/* Mobile Bar  Menus */}
+{openMobileMenu && (
+  <div className="w-full h-max bg-gray-100 absolute flex items-center z-50 justify-center p-3 lg:hidden">
+    <div className="bg-white w-[90%] h-[90%] rounded-2xl p-4 md:w-[80%] md:flex md:justify-center md:flex-col md:items-center">
+      <ul className="md:text-center">
+        {navbarData.items.map((item) => (
+          <li key={item.id} className="py-2 md:px-4">
+            {item.label}
           </li>
-          </ul> 
-        </div>
+        ))}
+      </ul>
 
+      <div className="w-full flex items-center justify-center py-2">
+        <button className="bg-blue-500 w-full md:w-[80%] p-2 rounded-lg">
+          <a
+            href={navbarData?.buttonlink}
+            className="text-[14px] text-white p-3"
+          >
+            {navbarData?.buttontext}
+          </a>
+        </button>
+      </div>
     </div>
+  </div>
+)}
 
 
-      </div>
+      </>
 
-
-
-     {menuOpen && (
-       <div className="menu-list w-full absolute h-fit right-0 top-[80px]  ">
-        <ul className=' bg-[#0d1222f2] text-white p-3 fontz'>
-          {/* <li className='text-end text-3xl p-3' onClick={openMenus}><i className="fa-solid fa-xmark fa-lg"></i></li> */}
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Home</li>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Services</li>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Impact</li>
-          <li className='text-center text-[16px] hover:text-[#f15c30] hover:border-b-2 hover:border-[#f15c30] p-3'>Blog</li>
-          <li className='text-center text-[16px]  p-3'>
-            <button className='gradient-bg px-3 py-1 rounded'>Enquire Now</button>
-          </li>
-        </ul>
-      </div>
-     )}
-    </>
 
   )
-} 
+}
 
 export default Header

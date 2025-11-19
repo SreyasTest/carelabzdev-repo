@@ -2,32 +2,52 @@ import { gql } from "@apollo/client";
 
 export const GET_NAVBAR = gql`
   query {
-    navbar {
-    Logo {
-      url
-    }
-    items {
-      order
-      link
-      label
-      id
-      heading
-      badge
-      submenus {
-        Button
-        featureheading
-        features {
-          name
-          id
+      navbar {
+        Logo {
+          url
         }
-        subtitle
-        title
-        
+        buttonlink
+        buttontext
+        items {
+          badge
+          heading
+          id
+          label
+          link
+          order
+          submenus {
+            Button
+            featureheading
+            features {
+              name
+              id
+            }
+            subtitle
+            title
+            id
+          }
+        }
+        regions {
+          link
+          name
+          order
+          siteUrl
+        }
+        viewText
+        regions_connection {
+          nodes {
+            link
+            siteUrl
+            order
+            name
+          }
+        }
+        regionTitle
+        regionSelector
+        documentId
       }
-    }
-  }
-  }
-`;
+      }
+    `;
 
 export const GET_BLOG = gql`
     query  {
@@ -61,22 +81,21 @@ export const GET_BLOG = gql`
     }`;
 
 
-export const GET_HOME_BANNER = gql`
+export const GET_HOME_SECTION_1 = gql`
 query  {
   homes {
     title
+    heading
     description
-    btn1_text
     btn1_link
+    btn1_text
     btn2_link
     btn2_text
-    background_video {
-      url
-    }
     stats {
-      number
       label
+      number
+      id
     }
   }
-}`
+}`;
 
