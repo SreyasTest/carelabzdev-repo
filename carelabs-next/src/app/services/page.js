@@ -137,7 +137,7 @@ const page = () => {
                 </div>
 
 
-                <div className='w-[65%] navbar-shadow bg-gray-50 '>
+                <div className='w-[65%] navbar-shadow bg-black '>
                      <div className=' '>
                          
                      </div>
