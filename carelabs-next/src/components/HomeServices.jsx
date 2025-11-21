@@ -61,7 +61,7 @@ const fetchGlobalReach = async () => {
 
       <div className="w-full min-h-screen  py-8 lg:py-0 ">
       <div className="w-full h-full lg:h-screen flex items-center justify-center px-4">
-        <div className="flex flex-col lg:flex-row xl:w-full 2xl:w-[75%] lg:h-[80%] gap-4 lg:gap-0">
+        <div className="flex flex-col lg:flex-row xl:w-full 2xl:w-[65%] lg:h-[80%] gap-4 lg:gap-0">
 
             {/* Service Cards Column */}
             <div className="w-full lg:w-[35%] h-full flex flex-col justify-start items-center p-3 gap-3 lg:gap-5 overflow-y-auto">

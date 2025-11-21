@@ -27,7 +27,7 @@ const QuoteBar = () => {
         showBar ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="w-[90%] sm:w-[80%] md:w-[75%] quotes-background h-auto sm:h-[100px] rounded-2xl flex flex-col sm:flex-row items-center sm:justify-between p-4 sm:p-5 gap-3 card-shadow">
+      <div className="w-[90%] sm:w-[80%] md:w-[65%] quotes-background h-auto sm:h-[100px] rounded-2xl flex flex-col sm:flex-row items-center sm:justify-between p-4 sm:p-5 gap-3 card-shadow">
         
         {/* Text Section */}
         <div className="flex-1 flex flex-col justify-center text-center sm:text-left">

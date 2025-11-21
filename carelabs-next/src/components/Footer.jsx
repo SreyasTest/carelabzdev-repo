@@ -74,7 +74,7 @@ const Footer = () => {
 
   <div>
       <div className="w-full footer-background md:h-[350px] lg:h-[400px] py-10 flex justify-center">
-        <div className="w-[90%] md:w-[80%] flex flex-col md:flex-row gap-8">
+        <div className="w-[90%] md:w-[80%] 2xl:w-[65%] flex flex-col md:flex-row gap-8">
 
           {/* LOGO & DESCRIPTION */}
           <div className="flex-1 flex flex-col gap-4 text-gray-50">
@@ -126,6 +126,7 @@ const Footer = () => {
               {item.label}
             </a>
           ))}
+         
         </div>
 
         <p className="text-xs">{copyrightText}</p>
