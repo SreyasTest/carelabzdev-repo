@@ -35,7 +35,7 @@ const fetchGlobalReach = async () => {
 <div className="">
          <div className="text w-full h-auto flex flex-col items-center justify-center py-10">
     
-    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[70%] bg-white flex items-center justify-center text-center flex-col gap-5 p-4">
+    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[65%] bg-white flex items-center justify-center text-center flex-col gap-5 p-4">
       
       {/* Heading */}
       <h1 className="text-xs sm:text-sm md:text-base px-6 py-2 rounded-full border border-blue-500">

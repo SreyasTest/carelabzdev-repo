@@ -44,7 +44,7 @@ if (!featured) {
         <div className="w-[90%] md:w-full h-full flex flex-col items-center justify-center p-3">
 
         {/* HEADER SECTION */}
-        <div className="w-full md:w-[95%] 2xl:w-[70%] flex flex-col md:flex-row md:items-center md:justify-between gap-5 ">
+        <div className="w-full md:w-[95%] 2xl:w-[65%] flex flex-col md:flex-row md:items-center md:justify-between gap-5 2xl:p-2">
             
             <div>
             <p className="text-3xl lg:text-5xl font-bold">{insights.title}</p>
@@ -61,7 +61,7 @@ if (!featured) {
 
         {/* BLOG CARD */}
         <div
-            className="w-full md:w-[95%] 2xl:w-[70%] md:h-[80%] 2xl:h-[85%] mt-10
+            className="w-full md:w-[95%] 2xl:w-[65%] md:h-[80%] 2xl:h-[85%] mt-10
                     flex flex-col md:flex-row navbar-shadow rounded-2xl ">
 
             {/* IMAGE SECTION */}
@@ -119,7 +119,7 @@ if (!featured) {
     </div>
 
 <div className="w-full py-10">
-  <div className="cards-blog grid grid-cols-1 mt-16 md:grid-cols-3 gap-8 w-[85%]  md:w-[90%] lg:mt-10  2xl:w-[70%] mx-auto sm-p-5">
+  <div className="cards-blog grid grid-cols-1 mt-16 md:grid-cols-3 gap-8 w-[85%]  md:w-[90%] lg:mt-10  2xl:w-[65%] mx-auto sm-p-5">
 
     {/* CARD 1 */}
     {insights.articles.slice(1, 4).map((item, idx) => (

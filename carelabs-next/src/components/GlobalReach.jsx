@@ -36,7 +36,7 @@ const GlobalReach = () => {
          
     <div className="text w-full h-auto flex flex-col items-center justify-center py-10">
     
-    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[70%] bg-white flex items-center justify-center text-center flex-col gap-5 p-4">
+    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[65%] bg-white flex items-center justify-center text-center flex-col gap-5 p-4">
       
       {/* Heading */}
       <h1 className="text-xs sm:text-sm md:text-base px-6 py-2 rounded-full border border-blue-500">
@@ -65,44 +65,10 @@ const GlobalReach = () => {
 
 
         <div className="cover w-full flex  item-center justify-center p-5 2xl:mb-10">
-            <div className="w-[90%] flex flex-col items-center justify-center rounded-2xl  2xl:w-[70%] p-4 navbar-shadow ">
+            <div className="w-[90%] flex flex-col items-center justify-center rounded-2xl  2xl:w-[65%] p-4 navbar-shadow ">
      <div className="card-block grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  w-[95%] gap-5 sm:gap-4 justify-items-center sm:p-5">
 
-                {/* <div className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center  gap-2 p-3 rounded-2xl card-shadow">
-                    <p className='text-4xl font-bold'>280</p>
-                    <p >Active Projects</p>
-                    <hr className='w-[90%]' />
-                    <p className='text-[14px]'> 15 Countries</p>
-                    <p className='text-[14px]'>Europe</p>
-
-                </div>
-                
-                  <div className="cards w-[90%] flex flex-col items-center justify-center  gap-2 p-3 rounded-2xl card-shadow">
-                    <p className='text-4xl font-bold'>280</p>
-                    <p >Active Projects</p>
-                    <hr className='w-[90%]' />
-                    <p className='text-[14px]'> 15 Countries</p>
-                    <p className='text-[14px]'>Europe</p>
-
-                </div>
-
-                  <div className="cards w-[90%] flex flex-col items-center justify-center  gap-2 p-3 rounded-2xl card-shadow ">
-                    <p className='text-4xl font-bold'>280</p>
-                    <p >Active Projects</p>
-                    <hr className='w-[90%]' />
-                    <p className='text-[14px]'> 15 Countries</p>
-                    <p className='text-[14px]'>Europe</p>
-
-                </div>
-
-                  <div className="cards w-[90%] flex flex-col items-center justify-center  gap-2 p-3 rounded-2xl card-shadow">
-                    <p className='text-4xl font-bold'>280</p>
-                    <p >Active Projects</p>
-                    <hr className='w-[90%]' />
-                    <p className='text-[14px]'> 15 Countries</p>
-                    <p className='text-[14px]'>Europe</p>
-
-                </div> */}
+              
 
                 {impactData.projectsStat?.map((item, index) => (
               <div key={index} className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center gap-2 p-3 rounded-2xl card-shadow">
@@ -122,39 +88,7 @@ const GlobalReach = () => {
 
      <div className="card-text grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  w-[95%] gap-5 sm:gap-4 justify-items-center p-5">
 
-                {/* <div className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center  gap-3 p-3 ">
-                     <div className="w-[45px] h-[45px] flex items-center justify-center bg-blue-300 rounded-full">
-                         <i className="fa-regular fa-moon" style={{color:"#3b82f6"}}></i>
-                     </div>
-                    <p >Active Projects</p>
-                    <p className='text-2xl font-bold'> 50+ Countries</p>
-                </div>
-
-                    <div className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center  gap-3 p-3 ">
-                     <div className="w-[45px] h-[45px] flex items-center justify-center bg-blue-300 rounded-full">
-                         <i className="fa-regular fa-moon" style={{color:"#3b82f6"}}></i>
-                     </div>
-                    <p >Active Projects</p>
-                    <p className='text-2xl font-bold'> 50+ Countries</p>
-                </div>
-
-
-                    <div className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center  gap-3 p-3 ">
-                     <div className="w-[45px] h-[45px] flex items-center justify-center bg-blue-300 rounded-full">
-                         <i className="fa-regular fa-moon" style={{color:"#3b82f6"}}></i>
-                     </div>
-                    <p >Active Projects</p>
-                    <p className='text-2xl font-bold'> 50+ Countries</p>
-                </div>
-
-
-                    <div className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center  gap-3 p-3 ">
-                     <div className="w-[45px] h-[45px] flex items-center justify-center bg-blue-300 rounded-full">
-                         <i className="fa-regular fa-moon" style={{color:"#3b82f6"}}></i>
-                     </div>
-                    <p >Active Projects</p>
-                    <p className='text-2xl font-bold'> 50+ Countries</p>
-                </div> */}
+       
                 
                 {impactData.successStat?.map((item, index) => (
               <div key={index} className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center gap-3 p-3">
