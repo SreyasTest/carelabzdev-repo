@@ -18,8 +18,6 @@ export default function Home() {
   const [homeData,setHomeData]=useState();
   const [blogData,setBlogData]=useState();
 
-
-
     useEffect(() => {
     Aos.init({ 
       once: true,     // animate only once
