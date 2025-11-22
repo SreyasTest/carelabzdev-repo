@@ -114,42 +114,123 @@ const page = () => {
         </section>
 
 
-        <section>
+{/* Not Responsive ....v */}
+            <section>
+                <div className="w-full min-h-screen flex items-center justify-center flex-col">
 
-            <div className='w-full h-screen'>
+                    {/* Text Section */}
+                    <div className="text w-full h-auto flex flex-col items-center justify-center py-10">
+                    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[65%] flex items-center justify-center text-center flex-col gap-5 p-4">
 
-                <div className="text w-full h-auto flex flex-col items-center justify-center py-10">
-                    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[65%] bg-gray-400 flex items-center justify-center text-center flex-col gap-5 p-4">
-                    
-                    {/* Title */}
-                    <p className="gradient-text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                      What's Included in Our Power System Analysis
+                        {/* Title */}
+                        <p className="gradient-text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                        What's Included in Our Power System Analysis
+                        </p>
 
-                    </p>
-                    
-                    {/* Description */}
-                    <p className=" w-[80%] px-4 sm:px-8 text-lg  md:text-xl text-[#65758B]">
-                        {/* Operating across continents with local expertise and global standards. */}
-                       Comprehensive electrical engineering studies covering all critical aspects of power system design, operation, and safety.
-                    </p>
-                    <p className=" w-[80%] px-4 sm:px-8 text-lg  md:text-xl text-[#65758B]">
-                        {/* Operating across continents with local expertise and global standards. */}
-                       Comprehensive electrical engineering studies covering all critical aspects of power system design, operation, and safety.
-                    </p>
+                        {/* Description */}
+                        <p className="w-[80%] px-4 sm:px-8 text-lg md:text-xl text-[#65758B]">
+                        Comprehensive electrical engineering studies covering all critical
+                        aspects of power system design, operation, and safety.
+                        </p>
 
                     </div>
+                    </div>
+
+                    {/* Responsive Grid Section */}
+                    <div className="w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+
+                    {/* Card Component */}
+                    {[1,2,3,4,5,6].map((item, index) => (
+                        <div key={index} className="bg-white rounded-2xl navbar-shadow">
+                        <div className="w-full h-[40%] flex items-center justify-between p-4">
+                            <div className="flex items-center justify-center">
+                            <div className="w-[70px] h-[70px] gradient-bg rounded-2xl flex items-center justify-center">
+                                <i className="fa-solid fa-circle-nodes"></i>
+                            </div>
+                            </div>
+
+                            <div className="pt-3">
+                            <p className="text-sm text-center font-medium rounded-2xl bg-orange-50 px-3 py-1">
+                                Essential
+                            </p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-2 p-5">
+                            <p className="text-2xl font-bold">Load Flow Analysis</p>
+                            <p className="text-sm">
+                            Analyze motor inrush impacts, voltage sag scenarios, and ensure
+                            smooth startup without network disruption.
+                            </p>
+                        </div>
+                        </div>
+                    ))}
+
+                    </div>
+
                 </div>
+            </section>
 
 
-                <div className='w-[65%] navbar-shadow bg-red-500 '>
-                     <div className=''>
-                         
-                     </div>
+            <section>
+                <div className="w-full min-h-screen flex flex-col items-center justify-center py-10">
+
+                    {/* Text Section */}
+                    <div className="w-full flex flex-col items-center justify-center py-10">
+                    <div className="w-11/12 sm:w-4/5 md:w-3/5 lg:w-1/2 2xl:w-[65%] text-center flex flex-col gap-5 p-4">
+
+                        {/* Title */}
+                        <p className="gradient-text font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                        Where Power System Analysis Adds the Most Value
+                        </p>
+
+                        {/* Description */}
+                        <p className="w-[80%] mx-auto px-4 sm:px-8 text-lg md:text-xl text-[#65758B]">
+                        Industry-specific applications and benefits for critical electrical
+                        infrastructure across diverse sectors.
+                        </p>
+
+                    </div>
+                    </div>
+
+                    {/* Responsive Grid Section */}
+                    <div className="w-[90%] sm:w-[85%] md:w-[70%] grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-6">
+
+                    {[1, 2, 3, 4].map((item) => (
+                        <div key={item} className="w-full rounded-4xl p-6 gap-4 flex flex-col card-shadow">
+
+                        {/* Icon */}
+                        <div className="w-[50px] h-[50px] mb-3 flex items-center justify-center rounded-xl bg-blue-300">
+                            <i className="fa-solid fa-circle-exclamation fa-xl"></i>
+                        </div>
+
+                        {/* Title */}
+                        <p className="text-2xl font-bold">Utilities</p>
+
+                        {/* List Items */}
+                        <div className="flex gap-2">
+                            <i className="fa-solid fa-circle-exclamation fa-md"></i>
+                            <p>Grid code compliance and interconnection studies</p>
+                        </div>
+
+                        <div className="flex gap-2">
+                            <i className="fa-solid fa-circle-exclamation fa-md"></i>
+                            <p>Grid code compliance and interconnection studies</p>
+                        </div>
+
+                        <div className="flex gap-2">
+                            <i className="fa-solid fa-circle-exclamation fa-md"></i>
+                            <p>Grid code compliance and interconnection studies</p>
+                        </div>
+
+                        </div>
+                    ))}
+
+                    </div>
+
                 </div>
+            </section>
 
-            </div>
-
-        </section>
 
       
       
