@@ -26,6 +26,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::home-new.home-new"
+    },
+    "homeseo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

@@ -688,6 +688,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     home_new: Schema.Attribute.Relation<'oneToOne', 'api::home-new.home-new'>;
     homebanner: Schema.Attribute.Relation<'oneToOne', 'api::home.home'>;
+    homeseo: Schema.Attribute.Component<'shared.seo', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
