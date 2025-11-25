@@ -553,7 +553,6 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::blog-category.blog-category'
     >;
-    category: Schema.Attribute.String;
     content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

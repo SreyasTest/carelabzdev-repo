@@ -48,9 +48,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog-category.blog-category"
-    },
-    "category": {
-      "type": "string"
     }
   }
 }
