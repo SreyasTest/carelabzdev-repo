@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import * as LucideIcons from 'lucide-react';
+import { ArrowRight, Download, PlayCircle } from "lucide-react";
 
 
 const ServicesLanding = ({service}) => {
@@ -8,6 +10,7 @@ const ServicesLanding = ({service}) => {
 
   const {
     badge,
+    badgeicon,
     mainheading1,
     mainheading2,
     maindesc,
@@ -31,12 +34,32 @@ const ServicesLanding = ({service}) => {
         <div className="w-full lg:w-[50%] flex flex-col gap-5 py-2 ">
 
           {/* Badge */}
-          <div className="w-fit">
+          {/* <div className="w-fit">
             <p className="px-4 py-2 text-xs sm:text-sm rounded-full text-center card-shadow bg-white">
-              {/* Engineering Excellence Since 2010 */}
+              {badgeicon && (() => {
+                const BadgeIcon = LucideIcons[badgeicon] || LucideIcons.Circle;
+                return <BadgeIcon className="w-4 h-4 text-[#ff7038]" />;
+              })()}
               {badge}
             </p>
-          </div>
+          </div> */}
+
+          <div className="w-fit">
+  <div className="px-4 py-2 text-xs sm:text-sm rounded-full 
+                  card-shadow bg-white flex items-center gap-2">
+
+    {/* Dynamic Icon */}
+    {badgeicon && (() => {
+      const BadgeIcon = LucideIcons[badgeicon] || LucideIcons.Circle;
+      return <BadgeIcon className="w-4 h-4 text-[#ff7038]" />;
+    })()}
+
+    {/* Text */}
+    <span>{badge}</span>
+
+  </div>
+</div>
+
 
           {/* Heading */}
           <div className="w-full flex flex-col gap-3">
@@ -67,9 +90,8 @@ const ServicesLanding = ({service}) => {
                 Request a Study
               </button> */}
 
-              <a
+              {/* <a
                 href={mainbuttonlink1}
-                //className="px-6 sm:px-8 py-2 text-white rounded-lg text-sm bg-blue-600"
                 className="
                 group relative px-6 sm:px-8 py-2 rounded-lg text-sm 
                 bg-blue-600 text-white overflow-hidden
@@ -83,16 +105,39 @@ const ServicesLanding = ({service}) => {
                 "
                 ></span>
                 <span className="relative z-10">{mainbutton1}</span>
-                {/* {mainbutton1} */}
-              </a>
+              </a> */}
 
+              <a
+      href={mainbuttonlink1}
+      className="
+        group relative px-6 sm:px-8 py-2 rounded-lg text-sm 
+        bg-blue-600 text-white overflow-hidden 
+        flex items-center gap-2
+      "
+    >
+      {/* Hover Glow */}
+      <span
+        className="
+          absolute inset-0 bg-blue-400/30 
+          opacity-0 group-hover:opacity-100 
+          transition-opacity duration-300
+        "
+      ></span>
+
+      {/* ICON */}
+      <ArrowRight className="relative z-10 w-4 h-4" />
+
+      {/* TEXT */}
+      <span className="relative z-10">{mainbutton1}</span>
+    </a>
+
+         {/* section2 */}
               {/* <button className="px-6 sm:px-8 py-2 text-sm border-2 rounded-lg border-blue-500 bg-white text-gray-600">
                 Download Sample Report
               </button> */}
                
-               <a
+               {/* <a
                 href={mainbuttonlink2}
-                //className="px-6 sm:px-8 py-2 text-sm border-2 rounded-lg border-blue-500 bg-white text-gray-600"
                 className="
                 group relative px-6 sm:px-8 py-2 text-sm 
                 border-2 rounded-lg border-blue-500 
@@ -107,20 +152,44 @@ const ServicesLanding = ({service}) => {
                 transition-opacity duration-300
                 "
                 ></span>
-                {/* {mainbutton2} */}
                 <span className="relative z-10">{mainbutton2}</span>
-              </a>
+              </a> */}
+
+              <a
+      href={mainbuttonlink2}
+      className="
+        group relative px-6 sm:px-8 py-2 text-sm 
+        border-2 rounded-lg border-blue-500 
+        bg-white text-gray-600
+        overflow-hidden flex items-center gap-2
+      "
+    >
+      <span
+        className="
+          absolute inset-0 bg-blue-200/40 
+          opacity-0 group-hover:opacity-100 
+          transition-opacity duration-300
+        "
+      ></span>
+
+      {/* ICON */}
+      <Download className="relative z-10 w-4 h-4" />
+
+      {/* TEXT */}
+      <span className="relative z-10">{mainbutton2}</span>
+    </a>
 
             </div>
+
+            {/* section3 */}
 
             {/* <button className="px-6 sm:px-8 py-2 text-sm rounded-lg border-2 border-orange-400 text-gray-600
               lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">
               Download Sample Report
             </button> */}
 
-            <a
+            {/* <a
               href={mainbuttonlink3}
-              //className="px-6 sm:px-8 py-2 text-sm rounded-lg border-2 border-orange-400 text-gray-600 lg:w-[60%] xl:w-[50%] 2xl:w-[40%]"
               className="
               group relative px-6 sm:px-8 py-2 text-sm rounded-lg 
               border-2 border-orange-400 text-gray-600
@@ -136,8 +205,31 @@ const ServicesLanding = ({service}) => {
               "
               ></span>
               <span className="relative z-10">{mainbutton3}</span>
-              {/* {mainbutton3} */}
-            </a>
+            </a> */}
+
+            <a
+    href={mainbuttonlink3}
+    className="
+      group relative px-6 sm:px-8 py-2 text-sm rounded-lg 
+      border-2 border-orange-400 text-gray-600
+      lg:w-[60%] xl:w-[50%] 2xl:w-[40%]
+      overflow-hidden flex items-center gap-2
+    "
+  >
+    <span
+      className="
+        absolute inset-0 bg-blue-200/40 
+        opacity-0 group-hover:opacity-100 
+        transition-opacity duration-300
+      "
+    ></span>
+
+    {/* ICON */}
+    <PlayCircle className="relative z-10 w-5 h-5 text-orange-500" />
+
+    {/* TEXT */}
+    <span className="relative z-10">{mainbutton3}</span>
+  </a>
 
           </div>
         </div>

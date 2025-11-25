@@ -138,22 +138,89 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
 //   );
 // };
 
+// const ResourceCard = ({ label, format, icon }) => {
+//   return (
+//     <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer group">
+//       <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
+//         <i className={icon || "fa-solid fa-file"}></i>
+//       </div>
+
+//       <div className="flex-1">
+//         <h3 className="font-semibold text-foreground mb-1">{label}</h3>
+//         <p className="text-sm text-muted-foreground">{format}</p>
+//       </div>
+
+//       <Download className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+//     </div>
+//   );
+// };
+
+// const ResourceCard = ({ label, format, icon }) => {
+//   return (
+//     <div
+//       className="
+//         bg-white rounded-2xl p-6 shadow
+//         flex items-start gap-4
+//         transition-all duration-300 cursor-pointer
+//         hover:shadow-lg hover:-translate-y-1
+//       "
+//     >
+//       {/* Icon */}
+//       <div
+//         className="
+//           w-14 h-14 flex items-center justify-center
+//           rounded-xl bg-blue-50
+//           text-blue-600 text-xl
+//         "
+//       >
+//         <i className={icon || "fa-solid fa-file"}></i>
+//       </div>
+
+//       {/* Text */}
+//       <div className="flex-1">
+//         <h3 className="font-semibold text-base mb-1">{label}</h3>
+//         <p className="text-sm text-gray-500">{format}</p>
+//       </div>
+
+//       {/* Download Icon */}
+//       <Download
+//         className="
+//           h-5 w-5 text-gray-400
+//           opacity-0 group-hover:opacity-100
+//           transition-opacity duration-300
+//         "
+//       />
+//     </div>
+//   );
+// };
+
 const ResourceCard = ({ label, format, icon }) => {
   return (
-    <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer group">
-      <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
-        <i className={icon || "fa-solid fa-file"}></i>
+    <div
+      className="
+        flex items-center gap-4 p-3 
+        rounded-xl transition-all duration-300 cursor-pointer
+        hover:-translate-y-[2px]
+        border-none
+      "
+    >
+      {/* Icon Box */}
+      <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-100 text-blue-600 text-xl">
+        <i className={icon || 'fa-solid fa-file'}></i>
       </div>
 
+      {/* Text */}
       <div className="flex-1">
-        <h3 className="font-semibold text-foreground mb-1">{label}</h3>
-        <p className="text-sm text-muted-foreground">{format}</p>
+        <p className="font-semibold">{label}</p>
+        <p className="text-xs text-gray-500">{format}</p>
       </div>
 
-      <Download className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+      <Download className="h-5 w-5 text-gray-400" />
     </div>
   );
 };
+
+
 
 // Main Component
 export default function FaqResourcesSection({ service }) {
@@ -223,11 +290,28 @@ export default function FaqResourcesSection({ service }) {
 
           {/* TOP TITLE */}
           <div className="w-full text-center mb-10 px-4">
-            <p className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            {/* <p className="text-3xl sm:text-4xl md:text-5xl font-bold">
               <span className="text-primary">{service?.faqTitle}</span>
-            </p>
+            </p> */}
 
-            <p className="text-sm sm:text-md md:text-lg w-[95%] sm:w-[80%] mx-auto text-muted-foreground mt-3">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-bold">
+
+    {/* FAQs - Orange Gradient */}
+    <span className="bg-gradient-to-r from-orange-500 to-red-500 text-transparent bg-clip-text">
+      {service?.faqTitle?.split("&")[0]?.trim()}
+    </span>
+
+    {/* & - Navy */}
+    <span className="mx-2 text-[#0F172A]">&</span>
+
+    {/* Technical Resources - Blue Gradient */}
+    <span className="bg-gradient-to-r from-blue-500 to-blue-700 text-transparent bg-clip-text">
+      {service?.faqTitle?.split("&")[1]?.trim()}
+    </span>
+
+  </p>
+
+            <p className="text-sm sm:text-md md:text-lg w-[95%] sm:w-[80%] mx-auto text-muted-foreground mt-3 text-gray-500">
               {service?.faqSubtitle}
             </p>
           </div>

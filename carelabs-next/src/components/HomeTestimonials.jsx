@@ -113,9 +113,9 @@ const HomeTestimonials = () => {
         </div>
 
         {/* Testimonial Text */}
-        <p className="text-xl   md:text-2xl 2xl:px-0 text-gray-700 leading-relaxed poppins-font ">
+        <p className="text-xl   md:text-2xl 2xl:px-0 text-gray-700 leading-relaxed poppins-font">
           {/* "{testimonials[current].quote}" */}
-          "{testimonials[current]?.feedback}"
+          {testimonials[current]?.feedback}
         </p>
 
         {/* Name + Position */}
@@ -127,7 +127,7 @@ const HomeTestimonials = () => {
         </div> */}
         
         <div className="mt-6">
-            <p className="font-bold text-lg montserrat-font">{testimonials[current]?.name}</p>
+            <p className="font-bold text-lg poppins-font">{testimonials[current]?.name}</p>
             <p className="text-[14px] text-gray-500 poppins-font">
               {testimonials[current]?.position}
             </p>

@@ -233,6 +233,7 @@ export const GET_SERVICES = gql`
 query {
   services {
     badge
+    badgeicon
     mainheading1
     mainheading2
     maindesc
@@ -256,6 +257,7 @@ query {
     Why_Matters {
       title
       subtitle
+      icon
       ans1
       ans2
       ans3
@@ -273,6 +275,7 @@ query {
     methodsSubtitle
     methodology {
       Order
+      icon
       OrderTitleText
       OrderSubtitleText
     }
@@ -331,6 +334,7 @@ export const GET_SINGLE_SERVICE_BY_SLUG = gql`
     services(filters: { slug: { eq: $slug } }) {
       slug
       badge
+      badgeicon
       mainheading1
       mainheading2
       maindesc
@@ -348,10 +352,12 @@ export const GET_SINGLE_SERVICE_BY_SLUG = gql`
         service_features {
       title
       description
+      icon
     }
     Why_Matters {
       title
       subtitle
+      icon
       ans1
       ans2
       ans3
@@ -369,6 +375,7 @@ export const GET_SINGLE_SERVICE_BY_SLUG = gql`
     methodsSubtitle
     methodology {
       Order
+      icon
       OrderTitleText
       OrderSubtitleText
       image {
