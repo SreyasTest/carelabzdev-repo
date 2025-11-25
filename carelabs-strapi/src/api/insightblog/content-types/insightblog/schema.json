@@ -107,6 +107,14 @@
     },
     "subscribebuttonlink": {
       "type": "string"
+    },
+    "RelatedArticlesText": {
+      "type": "string"
+    },
+    "RelatedArticleItems": {
+      "type": "component",
+      "component": "insights.related-article-items",
+      "repeatable": true
     }
   }
 }

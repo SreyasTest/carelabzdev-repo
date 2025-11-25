@@ -900,6 +900,11 @@ export interface ApiInsightblogInsightblog extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     publishedicon: Schema.Attribute.String;
     publishedOn: Schema.Attribute.String;
+    RelatedArticleItems: Schema.Attribute.Component<
+      'insights.related-article-items',
+      true
+    >;
+    RelatedArticlesText: Schema.Attribute.String;
     sections: Schema.Attribute.DynamicZone<
       [
         'insights.why-traditional-maintenance',

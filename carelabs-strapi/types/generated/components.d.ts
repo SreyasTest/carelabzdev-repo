@@ -197,6 +197,21 @@ export interface InsightsRealWorldItems extends Struct.ComponentSchema {
   };
 }
 
+export interface InsightsRelatedArticleItems extends Struct.ComponentSchema {
+  collectionName: 'components_insights_related_article_items';
+  info: {
+    displayName: 'RelatedArticleItems';
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    icon: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    readicon: Schema.Attribute.String;
+    readtext: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface InsightsTheRoadAhead extends Struct.ComponentSchema {
   collectionName: 'components_insights_the_road_aheads';
   info: {
@@ -538,6 +553,7 @@ declare module '@strapi/strapi' {
       'insights.key-building-blocks-items': InsightsKeyBuildingBlocksItems;
       'insights.real-world': InsightsRealWorld;
       'insights.real-world-items': InsightsRealWorldItems;
+      'insights.related-article-items': InsightsRelatedArticleItems;
       'insights.the-road-ahead': InsightsTheRoadAhead;
       'insights.what-ai-powered-predictive': InsightsWhatAiPoweredPredictive;
       'insights.why-traditional-items': InsightsWhyTraditionalItems;
