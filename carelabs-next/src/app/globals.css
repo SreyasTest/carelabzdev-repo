@@ -2,6 +2,11 @@
 @import "tailwindcss";
 @import "aos/dist/aos.css";
 
+@import "flowbite/src/themes/default";
+@import "flowbite";
+
+
+
 
 
 :root {
@@ -86,6 +91,9 @@
   padding: 5px 10px;
   background:#dae9fd ;
 }
+.light-blue{
+  background:#dae9fd;
+}
 .glass-panel {
     background: rgba(255, 255, 255, 0.9); /* white with opacity */
     border: 1px solid rgba(15, 23, 42, 0.1); /* subtle dark border */
@@ -93,6 +101,13 @@
     -webkit-backdrop-filter: blur(18px);
     box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
     border-radius: 16px;
+}
+/* icon blinks(navbar) */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  25% { opacity: 0.2; }
+  50% { opacity: 1; }
+  75% { opacity: 0.2; }
 }
 
 

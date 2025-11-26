@@ -170,7 +170,10 @@ const fetchGlobalReach = async () => {
 
                                 {activeItem?.performance?.map((p, idx) => (
                                  <div key={idx} className="flex items-center justify-center flex-col text-center">
-                                 <p className="text-xl sm:text-2xl font-bold">{p.stats}</p>
+                                  <p
+                                    className="text-xl sm:text-2xl font-bold"
+                                    dangerouslySetInnerHTML={{ __html: p.stats }}
+                                  />
                                  <p className="text-xs sm:text-sm text-gray-600">{p.name}</p>
                                  </div>
                                  ))}

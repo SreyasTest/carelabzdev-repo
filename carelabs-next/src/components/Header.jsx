@@ -1,9 +1,11 @@
 "use client";
 import { GET_NAVBAR } from '@/lib/api-Collection';
 import client from '@/lib/appollo-client';
-import { ChevronDown, ChevronUp, Globe, Mail, Moon, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, Globe, Mail, Moon, X ,ArrowRight} from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import RegionModal from './RegionModal';
+import Link from 'next/link';
+import * as LucideIcons from 'lucide-react';
 
 
 const Header = () => {
@@ -14,6 +16,11 @@ const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedRegion, setSelectedRegion] = useState("Global");
+
+    const activeSubmenu =
+      navbarData?.items?.[activeIndex]?.submenus?.[selectedSubmenuIndex];
+    const ActiveIcon = activeSubmenu ? LucideIcons[activeSubmenu.icon] : null;
+
 
     const regions = [
         "Global",
@@ -54,6 +61,8 @@ const Header = () => {
         }
       }
 
+      
+
       useEffect(() => {
         fetchNavbarData();
       }, []);
@@ -79,8 +88,8 @@ if (!navbarData) {
               </a>
             </div>
 
-            <div className="menuList hidden lg:flex lg:w-[50%] xl:w-[38%] lg:justify-center h-full">
-                <ul className='flex text-[14px] font-medium justify-evenly items-center gap-6 w-[99%] p-3'>
+            <div className="menuList hidden lg:flex lg:w-[60%] xl:w-[38%] lg:justify-center h-full">
+                <ul className='flex text-[14px] font-medium justify-evenly items-center gap-6 w-[95%] p-3'>
                 {navbarData.items.map((item, index) => (
                   // <li
                   //   key={item.id}
@@ -94,9 +103,9 @@ if (!navbarData) {
                   //   {item.label}
                   // </li>
 
-                  <li
+                  <li 
                     key={item.id}
-                    className="relative cursor-pointer group hover:text-[#1f7fdb] transition-colors duration-300"
+                    className="relative flex items-center lg:gap-0 2xl:gap-2 cursor-pointer group hover:text-[#1f7fdb] transition-colors duration-300"
                     onMouseEnter={() => {
                       if (item.submenus?.length > 0) {
                         setActiveIndex(index);
@@ -105,6 +114,8 @@ if (!navbarData) {
                     }}
                     onClick={() => {
                       if (!item.submenus || item.submenus.length === 0) {
+                        setActiveIndex(null); 
+                        setSelectedSubmenuIndex(0);
                         window.location.href = item.slug || "/blogs";
                       }
                     }}
@@ -112,21 +123,23 @@ if (!navbarData) {
                     {item.label}
 
                     {/* Only show chevron for first 3 items */}
-                    {/* {index < 3 && item.submenus?.length > 0 && (
+                    {index < 3 && item.submenus?.length > 0 && (
                       <ChevronDown
                         className="w-4 h-4 transition-transform duration-300 group-hover:-rotate-180"
                       />
-                    )} */}
-
+                    )}
+                    
                     <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#1f7fdb] transition-all duration-300 group-hover:w-full"></span>
                   </li>
                 ))}
               </ul>
 
             </div>
-            
+                
 
-            <div className="nav-Container h-full flex items-center gap-5 sm:gap-5 lg:justify-center lg:w-[40%] 2xl:justify-end 2xl:pe-[5%]">
+            <div className="nav-Container h-full flex items-center gap-5
+            lg:justify-center lg:w-[30%] lg:gap-3
+            2xl:justify-end 2xl:pe-[5%]">
                     <button
                   onClick={() => setIsModalOpen(true)}
                   className="global hidden sm:flex items-center justify-center gap-2 px-2 py-2 rounded-4xl border border-gray-300 hover:border-blue-400 w-24"
@@ -148,11 +161,14 @@ if (!navbarData) {
               </button>
                   </div>
 
-                  <div className="nav-bttn hidden lg:flex justify-center items-center rounded-md xl:w-[26%] 2xl:w-[33%] bg-[#157de5] ">
+                  <div className="nav-bttn hidden lg:flex justify-center items-center rounded-md xl:w-[35%] 2xl:w-[45%] bg-[#157de5]">
                     <button className=' text-sm lg:py-[10px] lg:px-3 ' >
                       <a href={navbarData?.buttonlink} className='text-[14px] text-white font-medium'>{navbarData?.buttontext}</a>
                     </button>
                   </div>
+
+          
+
 
 
                   <div
@@ -172,6 +188,8 @@ if (!navbarData) {
           </div>
         </div>
 
+       
+
 
         {activeIndex !== null &&
           navbarData.items[activeIndex]?.submenus?.length > 0 && (
@@ -183,21 +201,52 @@ if (!navbarData) {
 
                 {/* LEFT SECTION */}
                 <div className="w-[35%] h-full">
-                  <h2 className="font-bold text-lg mb-3">
+                  <h2 className="font-bold text-sm text-[#111827] mb-3">
                     {navbarData.items[activeIndex].heading}
                   </h2>
 
-                  {navbarData.items[activeIndex].submenus.map((submenu, index) => (
-                    <div 
-                      key={submenu.id} 
-                      className={`p-3 rounded-l-2xl cursor-pointer 
-                        ${selectedSubmenuIndex === index ?" border-l-4 border-blue-500" : ""}`}
-                      onClick={() => setSelectedSubmenuIndex(index)}
-                    >
-                      <h3 className="font-semibold">{submenu.title}</h3>
-                      <p className="text-sm text-gray-600">View Details</p>
-                    </div>
-                  ))}
+                  {navbarData.items[activeIndex].submenus.map((submenu, index) => {
+                    const IconComponent = LucideIcons[submenu.icon];
+                    return (
+                      <div 
+                        key={submenu.id} 
+                        className={`flex items-center gap-3 p-3 rounded-l-2xl cursor-pointer
+                          ${selectedSubmenuIndex === index ? "border-l-4 border-[#157de5]" : ""}`}
+                        onClick={() => setSelectedSubmenuIndex(index)}
+                      >
+                      
+                        {IconComponent && (
+                          <IconComponent 
+                           style={
+                            selectedSubmenuIndex === index
+                              ? { animation: "blink 0.25s infinite" }
+                              : {}
+                          }
+                            className={`w-5 h-5 
+                              ${selectedSubmenuIndex === index 
+                                ? "text-[#FF7038] blink" 
+                                : "text-[#157de5]"
+                              }`} 
+                          />
+                        )}
+
+                        <div>
+                          <h3 className="font-semibold">{submenu.title}</h3>
+                          <p className="text-sm text-gray-600">View Details</p>
+                        </div>
+
+                      </div>
+                    );
+                    // <div 
+                    //   key={submenu.id} 
+                    //   className={`p-3 rounded-l-2xl cursor-pointer 
+                    //     ${selectedSubmenuIndex === index ?" border-l-4 border-blue-500" : ""}`}
+                    //   onClick={() => setSelectedSubmenuIndex(index)}
+                    // >
+                    //   <h3 className="font-semibold">{submenu.title}</h3>
+                    //   <p className="text-sm text-gray-600">View Details</p>
+                    // </div>
+                  })}
 
                   
                 </div>
@@ -207,54 +256,59 @@ if (!navbarData) {
                 
                     <div  className="p-5 flex flex-col">
 
-                      <div className=" w-full ">
+                      <div className=" w-full flex items-center gap-3">
+                        {ActiveIcon && (
+                          <ActiveIcon className="w-5 h-5 text-[#157de5]" />
+                        )}
                         <h3 className="text-[14px] w-[15%] text-center p-1 rounded-full text-blue-600 bg-blue-200">{navbarData.items[activeIndex].badge}</h3>
                       </div>
                     
 
                         <div className="py-4">
-                          <p className="text-2xl font-bold  text-gray-600">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].title}</p>
+                          <p className="text-2xl font-bold  text-black">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].title}</p>
                           <hr  className="w-[15%] rounded-full h-1 mt-1 gradient-bg border-none" />
                         </div>
                     
 
-                      <p className="text-sm  text-gray-600 py-4">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].subtitle}</p>
+                        <p className="text-sm  text-gray-600 py-4">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].subtitle}</p>
 
-                      <div className="py-5">
-                        <p className="text-sm font-bold  text-gray-600">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].featureheading}</p>
-                        {navbarData.items[activeIndex].submenus[selectedSubmenuIndex].features.map((feature) => (
-                          <div key={feature.id} className="flex items-center gap-2 mt-2">
-                            <i className="fa-solid fa-circle fa-2xs text-blue-500"></i>
-                            <p className="text-sm text-gray-600">{feature.name}</p>
-                          </div>
-                        ))}
-                      </div>
+                        <div className="py-5">
+                          <p className="text-sm font-bold  text-gray-800">{navbarData.items[activeIndex].submenus[selectedSubmenuIndex].featureheading}</p>
+                          {navbarData.items[activeIndex].submenus[selectedSubmenuIndex].features.map((feature) => (
+                            <div key={feature.id} className="flex items-center gap-2 mt-2">
+                              <i className="fa-solid fa-circle fa-2xs text-blue-500"></i>
+                              <p className="text-sm text-gray-600">{feature.name}</p>
+                            </div>
+                          ))}
+                        </div>
                   
+                    {/* <Link 
+                        href={`/services/${navbarData.items[activeIndex].submenus[selectedSubmenuIndex].slug}`}
+                        className="bg-blue-500 text-white py-2 px-4 rounded-full w-[40%] block text-center"
+                      >
+                      {navbarData.items[activeIndex].submenus[selectedSubmenuIndex].Button}
+                      </Link> */}
 
-                      <button className='bg-blue-500 text-white py-2 px-4 rounded-full w-[40%]'>
-                        <a href={`/services/${navbarData.items[activeIndex].submenus[selectedSubmenuIndex].slug}`}>
-                        {navbarData.items[activeIndex].submenus[selectedSubmenuIndex].Button}
-                        </a>
-                      </button>
+                      {(() => {
+                      const submenu = navbarData.items[activeIndex].submenus[selectedSubmenuIndex];
+                       console.log // index 2 is Insights/Blog
 
-                      {/* {(() => {
-  const selectedItem = navbarData.items[activeIndex];
-  const hasSubmenus = selectedItem?.submenus?.length > 0;
+                      const finalURL = isBlog 
+                      ? `/blogs/${submenu.slug}`
+                      : `/services/${submenu.slug}`;
 
-  const finalURL = hasSubmenus
-    ? `/services/${selectedItem.submenus[selectedSubmenuIndex].slug}`
-    : selectedItem?.slug || "/blogs";
-
-  const finalText = hasSubmenus
-    ? selectedItem.submenus[selectedSubmenuIndex].Button
-    : selectedItem?.buttonText || "Read More";
-
-  return (
-    <button className="bg-blue-500 text-white py-2 px-4 rounded-full w-[40%]">
-      <a href={finalURL}>{finalText}</a>
-    </button>
-  );
-})()} */}
+                      return (
+                      <Link
+                        href={finalURL}
+                        className="group relative inline-flex items-center justify-center bg-[#157de5] text-white text-[14px] font-semibold py-2 px-4 rounded-full w-[45%] text-center transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gradient-to-r hover:from-[#157de5] hover:to-[#ff7038] hover:shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
+                      >
+                        <span className="flex items-center gap-2">
+                          {submenu.Button}
+                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
+                      </Link>
+                      );
+                      })()}
 
                     </div>
                   
@@ -362,6 +416,10 @@ if (!navbarData) {
               
           </div>
         </div>
+
+        
+         
+
       )}
 
 

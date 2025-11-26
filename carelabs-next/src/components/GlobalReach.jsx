@@ -84,17 +84,19 @@ const GlobalReach = () => {
 
                 {impactData.projectsStat?.map((item, index) => (
               <div
-              data-aos="fade-up"
-     data-aos-anchor-placement="top-center"
-              key={index} className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center gap-2 p-3 rounded-2xl card-shadow">
-                <p className='text-[36px] montserrat-font  font-bold'>{item.count}</p>
-                <p className='poppins-font text-[14px]'>{item.title}</p>
-                <hr className='w-[90%]' />
-                <p className='text-[12px] poppins-font'>{item.countryCount} Countries</p>
-                <p className='text-[12px] poppins-font'>{item.countryName}</p>
-              </div>
-            ))}
+                  data-aos="fade-up"
+                  data-aos-anchor-placement="top-center"
+                  key={index} className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center gap-2 p-3 rounded-2xl card-shadow">
+                  <p className='text-[36px] montserrat-font font-bold' dangerouslySetInnerHTML={{ __html: item.count }}></p>
+                  <p className='poppins-font text-[14px]'>{item.title}</p>
+                  <hr className='w-[90%]' />
+                  <p className='text-[12px] poppins-font'>
+                    <span dangerouslySetInnerHTML={{ __html: item.countryCount }} /> 
+                  </p>
+                  <p className='text-[12px] poppins-font'>{item.countryName}</p>
 
+                  </div>
+                ))}
             </div>
 
 
@@ -104,14 +106,14 @@ const GlobalReach = () => {
      <div className="card-text grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  w-[95%] gap-5 sm:gap-4 justify-items-center p-5">
 
        
-                
+      
                 {impactData.successStat?.map((item, index) => (
               <div key={index} className="cards w-[90%] sm:w-[95%] flex flex-col items-center justify-center gap-3 p-3">
                 <div className="w-[45px] h-[45px] flex items-center justify-center bg-[#157de5] rounded-full">
                   <i className="fa-regular fa-moon" style={{ color: "#3b82f6" }}></i>
                 </div>
                 <p>{item.title}</p>
-                <p className='text-2xl font-bold poppins-font '>{item.value}</p>
+                <p className='text-2xl font-bold poppins-font text-center' dangerouslySetInnerHTML={{ __html: item.value }}></p>
               </div>
             ))}
                

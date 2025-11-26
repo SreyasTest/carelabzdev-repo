@@ -16,6 +16,7 @@ export const GET_NAVBAR = gql`
           link
           order
           submenus {
+          icon
            slug
             Button
             featureheading
@@ -454,126 +455,251 @@ export const GET_SINGLE_SERVICE_BY_SLUG = gql`
   }
 `;
 
+// export const GET_INSIGHTS_BY_SLUG = gql`
+// query ($slug: String!) {
+//   insightblogs (filters: { slug: { eq: $slug } }) {
+//     badge
+//     badgeicon
+//     mainheading
+//     description
+//     authoricon
+//     author
+//     publishedicon
+//     publishedOn
+//     timeicon
+//     time
+//     slug
+//     category {
+//       title
+//     }
+//     introtitle
+//     introcontent
+//     articleSection {
+//       title
+//       articleItems {
+//         order
+//         slug
+//         title
+//       }
+//     }
+//     Weeklytitle
+//     Weeklydesc
+//     emailplaceholder
+//     subscribebutton
+//     subscribebuttonlink
+//     sections {
+//       ... on ComponentInsightsWhyTraditionalMaintenance {
+//         title
+//         slug
+//         introduction
+//         WhyTraditionalItems {
+//           title
+//           description
+//         }
+//       }
+//       ... on ComponentInsightsWhatAiPoweredPredictive {
+//         title
+//         slug
+//         content
+//         imagetext
+//         image {
+//           url
+//         }
+//       }
+//       ... on ComponentInsightsKeyBuildingBlocks {
+//         title
+//         slug
+//         KeyBuildingBlocksItems {
+//           order
+//           title
+//           icon
+//           content
+//         }
+//         image {
+//           url
+//         }
+//         imagetext
+//       }
+//       ... on ComponentInsightsRealWorld {
+//         title
+//         slug
+//         RealWorldItems {
+//           icon
+//           title
+//           content
+//           result
+//         }
+//       }
+//       ... on ComponentInsightsHowtoGetStarted {
+//         title
+//         content
+//         image {
+//           url
+//         }
+//         imagetext
+//         slug
+//       }
+//       ... on ComponentInsightsChallenges {
+//         title
+//         slug
+//         introduction
+//         ChallengesItems {
+//           title
+//           description
+//         }
+//         conclusion
+//       }
+//       ... on ComponentInsightsTheRoadAhead {
+//         title
+//         slug
+//         content
+//         conclusion
+//       }
+//     }
+//     exploretitle
+//     exploresubtitle
+//     button1text
+//     button1icon
+//     button1link
+//     button2text
+//     button2link
+//     RelatedArticlesText
+//     RelatedArticleItems {
+//       icon
+//       category
+//       title
+//       readtext
+//       readicon
+//       link
+//     }
+//   }
+// }
+  
+// `
+
 export const GET_INSIGHTS_BY_SLUG = gql`
-query ($slug: String!) {
-  insightblogs (filters: { slug: { eq: $slug } }) {
-    badge
-    badgeicon
-    mainheading
-    description
-    authoricon
-    author
-    publishedicon
-    publishedOn
-    timeicon
-    time
-    slug
-    category {
-      title
-    }
-    introtitle
-    introcontent
-    articleSection {
-      title
-      articleItems {
-        order
-        slug
+  query ($slug: String!) {
+    insightblogs(filters: { slug: { eq: $slug } }) {
+      badge
+      badgeicon
+      mainheading
+      description
+      authoricon
+      author
+      publishedicon
+      publishedOn
+      timeicon
+      time
+      slug
+      category {
         title
       }
-    }
-    Weeklytitle
-    Weeklydesc
-    emailplaceholder
-    subscribebutton
-    subscribebuttonlink
-    sections {
-      ... on ComponentInsightsWhyTraditionalMaintenance {
+      introtitle
+      introcontent
+      articleSection {
         title
-        slug
-        introduction
-        WhyTraditionalItems {
-          title
-          description
-        }
-      }
-      ... on ComponentInsightsWhatAiPoweredPredictive {
-        title
-        slug
-        content
-        imagetext
-        image {
-          url
-        }
-      }
-      ... on ComponentInsightsKeyBuildingBlocks {
-        title
-        slug
-        KeyBuildingBlocksItems {
+        articleItems {
           order
+          slug
           title
-          icon
+        }
+      }
+      Weeklytitle
+      Weeklydesc
+      emailplaceholder
+      subscribebutton
+      subscribebuttonlink
+      sections {
+        ... on ComponentInsightsWhyTraditionalMaintenance {
+          title
+          slug
+          introduction
+          WhyTraditionalItems {
+            title
+            description
+          }
+        }
+        ... on ComponentInsightsWhatAiPoweredPredictive {
+          title
+          slug
           content
+          imagetext
+          image {
+            url
+          }
         }
-        image {
-          url
+        ... on ComponentInsightsKeyBuildingBlocks {
+          title
+          slug
+          KeyBuildingBlocksItems {
+            order
+            title
+            icon
+            content
+          }
+          image {
+            url
+          }
+          imagetext
         }
-        imagetext
-      }
-      ... on ComponentInsightsRealWorld {
-        title
-        slug
-        RealWorldItems {
-          icon
+        ... on ComponentInsightsRealWorld {
+          title
+          slug
+          RealWorldItems {
+            icon
+            title
+            content
+            result
+          }
+        }
+        ... on ComponentInsightsHowtoGetStarted {
           title
           content
-          result
+          image {
+            url
+          }
+          imagetext
+          slug
         }
-      }
-      ... on ComponentInsightsHowtoGetStarted {
-        title
-        content
-        image {
-          url
-        }
-        imagetext
-        slug
-      }
-      ... on ComponentInsightsChallenges {
-        title
-        slug
-        introduction
-        ChallengesItems {
+        ... on ComponentInsightsChallenges {
           title
-          description
+          slug
+          introduction
+          ChallengesItems {
+            title
+            description
+          }
+          conclusion
         }
-        conclusion
+        ... on ComponentInsightsTheRoadAhead {
+          title
+          slug
+          content
+          conclusion
+        }
       }
-      ... on ComponentInsightsTheRoadAhead {
+      exploretitle
+      exploresubtitle
+      button1text
+      button1icon
+      button1link
+      button2text
+      button2link
+      RelatedArticlesText
+      RelatedArticleItems {
+        icon
+        category
         title
-        slug
-        content
-        conclusion
+        readtext
+        readicon
+        link
       }
-    }
-    exploretitle
-    exploresubtitle
-    button1text
-    button1icon
-    button1link
-    button2text
-    button2link
-    RelatedArticlesText
-    RelatedArticleItems {
-      icon
-      category
-      title
-      readtext
-      readicon
-      link
     }
   }
-}
-`
+`;
+
+console.log("GET_INSIGHTS_BY_SLUG QUERY LOADED");
+
 
 
 

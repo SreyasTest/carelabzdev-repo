@@ -129,38 +129,35 @@ if (!featured) {
 
             {/* CARD 1 */}
             {insights.articles.slice(1, 4).map((item, idx) => (
+               <a key={idx} href={item.buttonlink} >
                     <div 
                     data-aos="fade-up"
-     data-aos-anchor-placement="top-center"
-                    key={idx} className="bg-white rounded-xl card-shadow flex flex-col">
+                    data-aos-anchor-placement="top-center"
+                    key={idx} className=" bg-[#e6f0fd] card-shadow flex flex-col transform transition-all duration-500 ease-in-out hover:-translate-y-3 hover:shadow-lg hover:border hover:border-gradient-to-r hover:from-[#157de5] hover:to-[#ff7038] cursor-pointer group">
 
                       {/* IMAGE */}
                       <div className="w-full h-48 overflow-hidden rounded-t-lg">
                         <img
                           src={item?.image?.url}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transform transition-all duration-500 ease-in-out group-hover:scale-115"
                           alt={item.title}
                         />
                       </div>
 
                       {/* CONTENT */}
                       <div className="px-6 py-4 flex flex-col gap-3">
-
                         <p className="text-sm text-blue-600 font-bold">
                           {item.blog_category?.category}
                         </p>
-
                         <p className="text-xl font-semibold montserrat-font">{item.title}</p>
-
                         <p className="text-sm text-para poppins-font">{item.description}</p>
-
                         <p className="text-xs text-para   poppins-font">
                           {item.date} · {item.category}
                         </p>
-
                       </div>
                     </div>
-                  ))}
+                     </a>
+            ))}
 
 
           </div>
