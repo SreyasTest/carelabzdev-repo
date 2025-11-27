@@ -196,6 +196,7 @@ query {
       description
       date
       content
+      icon
       category
       buttontext
       buttonlink
@@ -698,7 +699,6 @@ export const GET_INSIGHTS_BY_SLUG = gql`
   }
 `;
 
-console.log("GET_INSIGHTS_BY_SLUG QUERY LOADED");
 
 
 

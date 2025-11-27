@@ -47,7 +47,6 @@ useEffect(() => {
 
   fetchData();
 
-
 }, []);
 
 
@@ -66,6 +65,12 @@ const openRandomVideo = () => {
   setVideoId(randomId);
   setShowVideo(true);
 };
+
+useEffect(()=> {
+  if (typeof window !== "undefined") {
+    window.openRandomVideoGlobal = () => openRandomVideo();
+  }
+},[])
 
 
 

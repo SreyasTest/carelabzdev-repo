@@ -1,10 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as LucideIcons from 'lucide-react';
 import { ArrowRight, Download, PlayCircle } from "lucide-react";
 
 
+
 const ServicesLanding = ({service}) => {
+
+  const [showVideo, setShowVideo] = useState(false);
+  const [videoId, setVideoId] = useState(null);
+
 
   if (!service) return null;
 
@@ -39,6 +44,21 @@ const downloadRandomPdf = () => {
   link.click();
   document.body.removeChild(link);
 };
+
+const randomVideos = [
+  "dQw4w9WgXcQ",
+  "kXYiU_JCYtU",
+  "RgKAFK5djSk",
+  "3JZ_D3ELwOQ",
+  "9bZkp7q19f0",
+];
+
+const openRandomVideo = () => {
+  const randomId = randomVideos[Math.floor(Math.random() * randomVideos.length)];
+  setVideoId(randomId);
+  setShowVideo(true);
+};
+
 
 
 
@@ -276,7 +296,7 @@ const downloadRandomPdf = () => {
   </a> */}
 
   <button
-  onClick={() => window.openRandomVideoGlobal?.()}
+  onClick={openRandomVideo}
   className="
     group relative px-6 sm:px-8 py-2 text-sm rounded-lg 
     border-2 border-orange-400 text-gray-600
@@ -440,6 +460,33 @@ const downloadRandomPdf = () => {
 
   </div>
 </div>
+
+{showVideo && (
+  <div
+    className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+    onClick={(e) => e.target === e.currentTarget && setShowVideo(false)}
+  >
+    <div className="bg-black rounded-2xl shadow-xl relative w-[90%] max-w-3xl">
+      
+      {/* Close button */}
+      <button
+        onClick={() => setShowVideo(false)}
+        className="absolute top-3 right-3 text-white text-xl font-bold"
+      >
+        ✖
+      </button>
+
+      {/* YouTube iframe */}
+      <iframe
+        className="w-full aspect-video rounded-xl"
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+      ></iframe>
+    </div>
+  </div>
+)}
+
 
 
 

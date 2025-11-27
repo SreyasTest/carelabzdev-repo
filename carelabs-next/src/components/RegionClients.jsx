@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Zap } from 'lucide-react';
+import { MapPin, Shield, Zap } from 'lucide-react';
 import React from 'react'
 
 const RegionClients = () => {
@@ -36,11 +36,11 @@ const RegionClients = () => {
         </div>
 
 
-        <div className="w-[65%] bg-amber-300 flex items-center justify-center gap-2">
+        <div className="w-[65%] h-max bg-amber-300 flex items-center justify-center gap-2">
 
             <div className="w-[50%] bg-amber-950 p-10 rounded-2xl">
                 <h3 className='mb-3 montserrat-font text-[24px] font-semibold '>Partners in Safety & Reliability</h3>
-                <p className='mb-3'>Carelabs partners with Canadian teams from feasibility 
+                <p className='mb-3 poppins-font'>Carelabs partners with Canadian teams from feasibility 
                     through to ongoing maintenance, delivering power system studies and electrical safety 
                     solutions that meet CSA standards and support critical operations coast to coast.</p>
                     <p className='mb-3'>Recent Projects:</p>
@@ -66,7 +66,53 @@ const RegionClients = () => {
                 </div>
             </div>
             </div>
-            <div className="w-[50%] bg-amber-800 p-5 rounded-2xl"></div>
+            <div className="w-[50%] h-full bg-amber-800 p-5 rounded-2xl">
+                <h2>Clients We've Partnered With</h2>
+                <div className=" grid grid-cols-3 ">
+                    <div className=" bg-amber-300">
+                        <div className="w-[80px] h-[80px] bg-amber-200">
+                           <Shield/>
+                        </div>
+                        <p>Hydro One</p>
+                    </div>
+
+                       <div className=" bg-amber-300">
+                        <div className="w-[80px] h-[80px] bg-amber-200">
+                           <Shield/>
+                        </div>
+                        <p>Hydro One</p>
+                    </div>
+
+                       <div className=" bg-amber-300">
+                        <div className="w-[80px] h-[80px] bg-amber-200">
+                           <Shield/>
+                        </div>
+                        <p>Hydro One</p>
+                    </div>
+
+                       <div className=" bg-amber-300">
+                        <div className="w-[80px] h-[80px] bg-amber-200">
+                           <Shield/>
+                        </div>
+                        <p>Hydro One</p>
+                    </div>
+
+                       <div className=" bg-amber-300">
+                        <div className="w-[80px] h-[80px] bg-amber-200">
+                           <Shield/>
+                        </div>
+                        <p>Hydro One</p>
+                    </div>
+
+                       <div className=" bg-amber-300">
+                        <div className="w-[80px] h-[80px] bg-amber-200">
+                           <Shield/>
+                        </div>
+                        <p>Hydro One</p>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
  
