@@ -114,6 +114,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::blog-category.blog-category"
+    },
+    "icon": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
