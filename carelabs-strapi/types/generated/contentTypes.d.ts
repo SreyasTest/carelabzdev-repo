@@ -1002,6 +1002,10 @@ export interface ApiInsightblogInsightblog extends Struct.CollectionTypeSchema {
     authoricon: Schema.Attribute.String;
     badge: Schema.Attribute.String;
     badgeicon: Schema.Attribute.String;
+    blog_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-category.blog-category'
+    >;
     button1icon: Schema.Attribute.String;
     button1link: Schema.Attribute.String;
     button1text: Schema.Attribute.String;

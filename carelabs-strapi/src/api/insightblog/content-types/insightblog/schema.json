@@ -115,6 +115,11 @@
       "type": "component",
       "component": "insights.related-article-items",
       "repeatable": true
+    },
+    "blog_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-category.blog-category"
     }
   }
 }
