@@ -3,6 +3,8 @@ import "./globals.css";
 import "aos/dist/aos.css";
 import Footer from "@/components/Footer";
 import QuoteBar from "@/components/QuoteBar";
+import Script from "next/script";
+
 
 
 
@@ -23,10 +25,17 @@ export default function RootLayout({ children }) {
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
 
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+        {/* Load Flowbite BEFORE the body renders */}
+        {/* <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"
+          strategy="beforeInteractive"
+        /> */}
   
       </head>
       
       <body>
+
         <Header/>
         {children}
         <QuoteBar/>

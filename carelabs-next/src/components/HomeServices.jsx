@@ -72,13 +72,18 @@ const fetchGlobalReach = async () => {
       <div className="w-full h-full xl:h-screen flex items-center justify-center px-4">
         <div
          
-        className="flex flex-col justify-center items-center xl:flex-row xl:w-[85%] 2xl:w-[67%] xl:h-[80%] gap-4 lg:gap-0">
+        className="flex flex-col justify-center items-center gap-4
+        lg:flex-row  lg:gap-0
+        xl:w-[85%] xl:h-[80%]
+        2xl:w-[65%]  ">
 
             {/* Service Cards Column */}
             <div 
             data-aos="fade-up"
             data-aos-anchor-placement="top-center"
-            className="w-full lg:w-[85%] xl:w-[40%] h-full flex flex-col justify-start items-center p-3 gap-3 lg:gap-5 overflow-y-auto">
+            className="  h-full flex flex-col justify-start items-center p-3 gap-3 lg:gap-5 overflow-y-auto
+            lg:w-[85%] 
+            xl:w-[40%]   ">
 
 
                 {items.map((item, index) => (
@@ -112,12 +117,14 @@ const fetchGlobalReach = async () => {
             </div>
 
             {/* Detail Panel */}
-            <div 
-             
-            className="w-full md:w-[85%] lg:w-[85%] xl:w-[60%] h-auto lg:h-full flex p-3 justify-center">
+            <div      
+            className="w-full  h-auto flex p-3 justify-center
+            md:w-[85%]
+            lg:h-full
+            xl:w-[60%] ">
                 <div 
                  data-aos="fade-up"
-     data-aos-anchor-placement="top-center"
+                    data-aos-anchor-placement="top-center"
                 className="w-full h-full rounded-3xl bg-white shadow-lg overflow-hidden flex flex-col">
                     
                     {/* Hero Section */}
